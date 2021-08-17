@@ -86,19 +86,13 @@ const Login = props => {
                     </div>
                     <div className="col-12 col-lg-6">
                         <h3 className="login__title">Advantages Of Becoming A Member</h3>
-                        <p className="login__description"> <b>Famart Buyer Protection </b>has you covered from click to delivery.<br/>Sign up or sign in and you will be able to: </p>
+                        <p className="login__description"> <b>Distrindia Pvt. Ltd. </b>has you covered from click to delivery.<br/>Sign up or sign in and you will be able to: </p>
                         <div className="login__orther">
                             <p> <i className="icon-truck"></i>Easily Track Orders, Hassle free Returns</p>
                             <p> <i className="icon-alarm2"></i>Get Relevant Alerts and Recommendation</p>
                             <p><i className="icon-star"></i>Wishlist, Reviews, Ratings and more.</p>
                         </div>
-                        <div className="login__vourcher">
-                            <div className="vourcher-money"><span className="unit">$</span><span className="number">25</span></div>
-                            <div className="vourcher-content">
-                                <h4 className="vourcher-title">GIFT VOURCHER FOR FISRT PURCHASE</h4>
-                                <p>We give $25 as a small gift for your first purchase.<br/>Welcome to Farmart Market!</p>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ const Home = () => {
                 <div className="col-12 col-lg-6">
                     <div className="comming__content">
                         <div className="container__coming">
-                            <h2 className="logo">Farm<span>art </span></h2>
+                            <img src={process.env.PUBLIC_URL + '/logo.png'} style={{width:'200px'}} alt="company logo"></img>
                             <div className="comming__box">
                                 <h2 className="comming__title">We're coming soon.</h2>
                                 <p>Currently we're working on our brand new webstie and will be lauching soon. Subscribe below to keep updated.</p>
@@ -32,7 +32,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-12 col-lg-6"><img src="img/pages/coming-soon.jpg" alt="distrindia" /></div>
+                {/* <div className="col-12 col-lg-6"><img src="img/pages/coming-soon.jpg" alt="distrindia" /></div> */}
             </div>
         </section>
     </main>
