@@ -23,7 +23,7 @@ const App = props => {
         
         dispatch(userAuthSession());
 
-    }, []);
+    }, [dispatch]);
     
 
     return (

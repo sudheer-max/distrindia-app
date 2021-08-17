@@ -35,7 +35,7 @@ const Register = props => {
             formReset();
             history.push('/');
         }
-    }, [currentUser]);
+    }, [currentUser, history]);
 
     const formReset = () => {
         setDisplayName("");

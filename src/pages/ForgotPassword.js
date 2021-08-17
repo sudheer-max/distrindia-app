@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { resetPasswordStart, resetUserState } from '../redux/User/user.actions';
+import { resetPasswordStart } from '../redux/User/user.actions';
 
 const mapState = ({ user }) => ({
     resetPasswordSuccess: user.resetPasswordSuccess,
@@ -24,10 +24,9 @@ const ForgotPassword = props => {
 
     useEffect(() => {
         if (resetPasswordSuccess) {
-            dispatch(resetUserState());
             history.push('/login');
         }
-    }, [resetPasswordSuccess]);
+    }, [resetPasswordSuccess, history]);
 
     const handleFormSubmit = async (e) => {
         e.preventDefault();
