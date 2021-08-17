@@ -1,7 +1,24 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logoutStart } from '../redux/User/user.actions';
+
+
+const mapState = ({ user }) => ({
+    currentUser: user.currentUser
+});
+
 
 const Footer = () => {
+
+    const dispatch = useDispatch();
+    // console.log(props);
+
+    const signOut = () => {
+        dispatch(logoutStart())
+    }
+    const { currentUser } = useSelector(mapState);
+    
     return (
         <>
             <footer className="ps-footer">
@@ -102,10 +119,20 @@ const Footer = () => {
                         </div>
                     </div>
                     <div className="navigation-title">
+                        
                         <button className="close-navbar-slide"><i className="icon-arrow-left"></i></button>
-                        <div><span> <i className="icon-user"></i>Hi, </span><span className="account">Morgan Averill</span><Link className="dropdown-user" to="/" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="icon-chevron-down"></i></Link>
-                            <div className="dropdown-menu" aria-labelledby="dropdownAccount"><Link className="dropdown-item" to="/"><b>My Account</b></Link><Link className="dropdown-item" to="/">Dashboard</Link><Link className="dropdown-item" to="/">Account Setting</Link><Link className="dropdown-item" to="shopping-cart.html">Orders</Link><Link className="dropdown-item" to="wishlist.html">Wishlist</Link><Link className="dropdown-item" to="/">Shipping Address</Link><Link className="dropdown-divider"></Link><Link className="dropdown-item" to="/"><b>Vendor Setting</b></Link><Link className="dropdown-item" to="/">Dashboard</Link><Link className="dropdown-item" to="/">Products</Link><Link className="dropdown-item" to="shopping-cart.html">Orders</Link><Link className="dropdown-item" to="/">Settings</Link><Link className="dropdown-item" to="vendor-store.html">View Store</Link><Link className="dropdown-divider"></Link><Link className="dropdown-item" to="/"><i className="icon-exit-left"></i>Log out</Link></div>
+                        {!currentUser && (
+                            <div><span className="account">Login</span><Link className="dropdown-user" to="/login" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="icon-chevron-down"></i></Link>
+                            <div className="dropdown-menu" aria-labelledby="dropdownAccount"><Link className="dropdown-item" to="/login"><b>Login</b></Link><Link className="dropdown-item" to="/register">Register</Link></div>
                         </div>
+                        )}
+
+                        {currentUser && (
+                            <div><span> <i className="icon-user"></i>Hi, </span><span className="account">{currentUser.displayName}</span><Link className="dropdown-user" to="/" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className="icon-chevron-down"></i></Link>
+                            <div className="dropdown-menu" aria-labelledby="dropdownAccount"><Link className="dropdown-item" to="/"><b>My Account</b></Link><Link className="dropdown-item" to="/">Dashboard</Link><Link className="dropdown-item" to="/">Account Setting</Link><Link className="dropdown-item" to="shopping-cart.html">Orders</Link><Link className="dropdown-item" to="wishlist.html">Wishlist</Link><Link className="dropdown-item" onClick={() => signOut()} ><i className="icon-exit-left"></i>Log out</Link></div>
+                        </div>
+                        )}
+                        
                     </div>
                 </div>
                 <div className="navigation__content">
