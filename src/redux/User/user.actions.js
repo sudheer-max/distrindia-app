@@ -61,16 +61,3 @@ export const googleLoginStart = () => ({
 });
 
 
-
-
-
-
-
-
-
-export const resetAuthForm = () => ({
-    type: userTypes.RESET_AUTH_FORM
-});
-
-
-

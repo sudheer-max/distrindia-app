@@ -139,7 +139,8 @@ export default function* userSagas() {
         call(onUserAuthSession),
         call(onLogoutStart),
         call(onRegisterUserStart),
-        call(onResetPasswordStart)
+        call(onResetPasswordStart),
+        call(onGoogleLoginStart)
     ]);
 };
 
