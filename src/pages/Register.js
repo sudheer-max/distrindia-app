@@ -49,7 +49,7 @@ const Register = props => {
     }
 
 
-    
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
         dispatch(registerUserStart({
@@ -57,86 +57,121 @@ const Register = props => {
         }));
     }
     return (
-        <main className="no-main">
-    <div className="ps-breadcrumb">
-        <div className="container">
-            <ul className="ps-breadcrumb__list">
-                <li className="active"><Link to="/">Home</Link></li>
-                <li><Link to=" ">My Account</Link></li>
-            </ul>
-        </div>
-    </div>
-    <section className="section--registration">
-        <div className="container">
-            <h2 className="page__title">Registration</h2>
-            <p className="page__subtitle">Get started by just filling out one simple form</p>
-                <div className="registration__content">
-                <form onSubmit={handleFormSubmit}>    
-                <div className="row">
-                    <div className="col-12 col-lg-7">
-                        <div className="registration__info">
-                            <h3 className="registration__title">Account Information</h3>
-                                        <div className="form-row">
-                                            {errors.length > 0 && (
-                                                <div>
-                                                    {errors.map((err, index) => {
-                                                        return (
-                                                            <span className="invalid-feedback" key={index}>{err}</span>
-                                                        )
-                                                    })}    
-                                                </div>
-                                            )}
-                                    <div className="col-12 form-group--block">
-                                        <label>Full name: <span>*</span></label>
-                                                <input className="form-control" type="text" name="displayName" required value={displayName} onChange={ (e) => setDisplayName(e.target.value)}/>
-                                    </div>
-                                    
-                                    <div className="col-12 form-group--block">
-                                        <label>Email: <span>*</span></label>
-                                                <input className="form-control" type="eamil" name="email" value={email} onChange={ (e) => setEmail(e.target.value)}/>
-                                    </div>
-                                    <div className="col-12 form-group--block">
-                                        <label>Password: <span>*</span></label>
-                                        <input className="form-control" type="password" required name="password" value={password} onChange={ (e) => setPassword(e.target.value)}/>
-                                    </div>
-                                    <div className="col-12 form-group--block">
-                                        <label>Retype password: <span>*</span></label>
-                                        <input className="form-control" type="password" required name="confirmPassword" value={confirmPassword} onChange={ (e) => setConfirmPassword(e.target.value)}/>
-                                    </div>
-                                </div>
+        <main classNameName="no-main" style={{ backgroundColor: 'white' }}>
+            <div className=" col-11 col-md-10 mx-auto" style={{ width: '450px', padding: '15px' }}>
+                <ul className="nav nav-tabs
+                    nav-justified mb-4"
+                    role="tablist">
+                    <li className="nav-item"> <Link
+                        className="nav-link
+                            text-5 line-height-3
+                            active">Sign Up</Link>
+                    </li>
+
+                </ul>
+                <p className="text-4 font-weight-300
+                text-muted text-center mb-4">Looks
+                    like you're new here!
+                </p>
+                <form id="signupForm" method="post">
+                    <div className="form-group">
+                        <input type="text"
+                            className="form-control
+                        border-2" id="fullName"
+                            required
+                            placeholder="Your Name" />
+                    </div>
+                    <div className="form-group">
+                        <input type="email"
+                            className="form-control
+                        border-2"
+                            id="emailAddress"
+                            required
+                            placeholder="Email Id" />
+                    </div>
+                    <div className="form-group">
+                        <input type="password"
+                            className="form-control
+                        border-2"
+                            id="loginPassword"
+                            required
+                            placeholder="Password" />
+                    </div>
+                    <div className="form-group my-4">
+                        <div className="form-check
+                        text-2 custom-control
+                        custom-checkbox">
+                            <input id="agree"
+                                name="agree"
+                                className="custom-control-input"
+                                type="checkbox" />
+                            <label
+                                className="custom-control-label"
+                                for="agree">I agree
+                                to the <Link to="#">Terms</Link>
+                                and <Link
+                                    to="#">Privacy
+                                    Policy</Link>.</label>
                         </div>
                     </div>
-                    <div className="col-12 col-lg-5">
-                        <h3 className="registration__title">Company Information</h3>
-                        <div className="registration__box">
-                                <div className="form-row">
-                                    <div className="col-12 form-group--block">
-                                        <label>Company name: <span>*</span></label>
-                                                <input className="form-control" type="text" name="cname" value={ cname } onChange={ (e) => setCname(e.target.value)}/>
-                                    </div>
-                                    
-                                    
-                                    <div className="col-12 form-group--block">
-                                        <label>address: </label>
-                                        <input className="form-control" type="text" name="address" value={address} onChange={ (e) => setAddress(e.target.value)} />
-                                    </div>
-                                    <div className="col-12 form-group--block">
-                                        <label>Phone number: <span>*</span></label>
-                                            <input className="form-control" type="text" name="mobile" value={ mobile } onChange={ (e) => setMobile(e.target.value)}/>
-                                    </div>
-                                    
-                                </div>
-                        </div>
-                        <p>By creating an account, you agree to Distrindia <span className="text-success">Conditions of Use </span>and <span className="text-success">Privacy Notice.</span></p>
-                        <button className="btn ps-button" type="submit" >Register</button>
-                    </div>
-                    
-                    </div>
+                    <button className="btn btn-primary
+                    btn-block my-4"
+                        type="submit">Sign Up</button>
                 </form>
-            </div>
-        </div>
-    </section>
-</main>
+                <div className="d-flex
+                align-items-center my-3">
+                    <hr className="flex-grow-1" />
+                    <span className="mx-2 text-2
+                    text-muted">Or Sign Up with
+                        Social Profile</span>
+                    <hr className="flex-grow-1" />
+                </div>
+                <div className="d-flex flex-column
+                align-items-center mb-3">
+                    <ul className="social-icons
+                    social-icons-colored
+                    social-icons-circle">
+                        <li
+                            className="social-icons-facebook"><Link
+                                to="#"
+                                data-toggle="tooltip"
+                                data-original-title="Sign
+                            Up with Facebook"><i
+                                    className="fab
+                                fa-facebook-f"></i></Link></li>
+                        <li
+                            className="social-icons-twitter"><Link
+                                to="#"
+                                data-toggle="tooltip"
+                                data-original-title="Sign
+                            Up with Twitter"><i
+                                    className="fab
+                                fa-twitter"></i></Link></li>
+                        <li
+                            className="social-icons-google"><Link
+                                to="#"
+                                data-toggle="tooltip"
+                                data-original-title="Sign
+                            Up with Google"><i
+                                    className="fab
+                                fa-google"></i></Link>
+                        </li>
+                        <li
+                            className="social-icons-linkedin"><Link
+                                to="#"
+                                data-toggle="tooltip"
+                                data-original-title="Sign
+                            Up with Linkedin"><i
+                                    className="fab
+                                fa-linkedin-in"></i></Link></li>
+                    </ul>
+                </div>
+                <p className="text-2 text-center mb-0">Already
+                    have an account? <Link
+                        className="btn-link" to="/login"
+                    >Log In</Link></p>
+            </div >
+        </main>
     )
 }
 
