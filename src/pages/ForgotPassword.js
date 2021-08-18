@@ -36,44 +36,71 @@ const ForgotPassword = props => {
     }
 
     return (
-        <main className="no-main" style={{ backgroundColor: 'white' }}>
-            <div class="col-11 col-md-10 mx-auto" style={{ width: '450px', padding: '15px' }}>
-                <h3 class="text-center mt-3 mb-4">Forgot
-                    your password?</h3>
-                <p class="text-center text-3
-                    text-muted">Enter your Email or
-                    Mobile and we’ll help you reset
-                    your password.</p>
-                <form id="forgotForm"
-                    class="form-border"
-                    method="post">
-                    <div class="form-group">
-                        <input type="text"
-                            class="form-control
-                            border-2"
-                            id="emailAddress"
-                            required
-                            placeholder="Enter Email
-                            or Mobile Number"/>
-                    </div>
-                    <button class="btn btn-primary
-                        btn-block my-4"
-                        type="submit">Continue</button>
-                </form>
-                <p class="text-center mb-0"><a
-                    class="btn-link" href=""
-                    data-toggle="modal"
-                    data-target="#login-modal"
-                    data-dismiss="modal">Return
-                    to Log In</a> <span
-                        class="text-muted mx-3">|</span>
-                    <a class="btn-link" href=""
-                        data-toggle="modal"
-                        data-target="#otp-modal"
-                        data-dismiss="modal">Request
-                        OTP</a></p>
+
+        <main className="no-main">
+            <div className="ps-breadcrumb">
+                <div className="container">
+                    <ul
+                        className="ps-breadcrumb__list">
+                        <li className="active"><Link
+                            to="/">Home</Link></li>
+                        <li><Link
+                            to="/">Reset Password</Link></li>
+                    </ul>
+                </div>
             </div>
+            <section
+                className="section--order-tracking">
+                <div className="container">
+                    <h2 className="page__title">Reset Password</h2>
+                    <div
+                        className="order-tracking__content">
+                        {errors.length > 0 && (
+                            <>
+                                {errors.map((err, index) => {
+                                    return (
+                                        <div className="invalid-feedback" key={index}>{err}</div>
+                                    )
+                                })}
+                            </>
+                        )}
+
+                        <div
+                            className="order-tracking__form">
+                            <form onSubmit={handleFormSubmit}>
+                                <div
+                                    className="form-row">
+                                    <div
+                                        className="col-12">
+                                        <p>Enter your Email or Mobile and we’ll help you reset
+                                            your password..</p>
+                                    </div>
+                                    <div
+                                        className="col-12
+                                            form-group--block">
+                                        <label>Your registered Email address:
+                                        </label>
+                                        <input
+                                            className="form-control"
+                                            type="text"
+                                            placeholder="Enter your registered email address" value={email} onChange={e => setEmail(e.target.value)} />
+                                    </div>
+
+                                    <div
+                                        className="col-12
+                                form-group--block">
+                                        <button
+                                            className="btn
+                                    ps-button" type="submit" >Reset Password</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
+
     )
 
 }

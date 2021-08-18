@@ -9,17 +9,26 @@
   <meta name="description" content="Ashtavinayak Darshan - Mumbai" />
   <link rel="apple-touch-icon" href="./logo192.png" />
   <link rel="manifest" href="./manifest.json" />
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900'
-    type='text/css'>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="vendor/font-awesome/css/all.min.css" />
-  <link rel="stylesheet" type="text/css" href="vendor/owl.carousel/assets/owl.carousel.min.css" />
-  <link rel="stylesheet" type="text/css" href="vendor/owl.carousel/assets/owl.theme.default.min.css" />
-  <link rel="stylesheet" type="text/css" href="vendor/jquery-ui/jquery-ui.css" />
-  <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css" />
-  <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
-  <title>Ashtavinayak yatra</title>
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext"
+    rel="stylesheet">
+  <link rel="stylesheet" href="fonts/Linearicons/Font/demo-files/demo.css">
+  <link rel="stylesheet"
+    href="../../../cdn.jsdelivr.net/gh/Dogfalo/materialize%40master/extras/noUiSlider/nouislider.css">
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+  <link rel="stylesheet" href="plugins/select2/dist/css/select2.min.css">
+  <link rel="stylesheet" href="plugins/owl-carousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/lightGallery/dist/css/lightgallery.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Distrindia Pvt. Ltd.</title>
 </head>
 
 <body>
@@ -34,42 +43,18 @@
       })
     }
   </script>
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/jquery-ui/jquery-ui.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="vendor/bootstrap-spinner/bootstrap-spinner.js"></script>
-  <script src="vendor/daterangepicker/moment.min.js"></script>
-  <script src="vendor/daterangepicker/daterangepicker.js"></script>
-  <script>
-    $(function () {
-      'use strict';
-      // Autocomplete
-      $('#busFrom,#busTo').autocomplete({
-        minLength: 3,
-        delay: 100,
-        source: function (request, response) {
-          $.getJSON(
-            'http://gd.geobytes.com/AutoCompleteCity?callback=?&q=' + request.term,
-            function (data) {
-              response(data);
-            }
-          );
-        },
-      });
-      // Depart Date
-      $('#busDepart').daterangepicker({
-        singleDatePicker: true,
-        autoApply: true,
-        minDate: moment(),
-        autoUpdateInput: false,
-      }, function (chosen_date) {
-        $('#busDepart').val(chosen_date.format('MM-DD-YYYY'));
-      });
-    });
-  </script>
-
-  <script src="js/theme.js"></script>
+   <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="plugins/jquery.min.js"></script>
+    <script src="plugins/popper.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="plugins/jquery.matchHeight-min.js"></script>
+    <script src="plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+    <script src="plugins/select2/dist/js/select2.min.js"></script>
+    <script src="plugins/slick/slick.js"></script>
+    <script src="plugins/lightGallery/dist/js/lightgallery-all.min.js"></script>
+    <script src="plugins/nouislider.min.js"></script>
+    <!-- custom code-->
+    <script src="js/main.js"></script>
 </body>
 
 </html>

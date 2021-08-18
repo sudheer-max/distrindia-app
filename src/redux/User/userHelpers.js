@@ -4,17 +4,17 @@ import { auth } from "../../firebase/utils";
 export const handleResetPasswordFuntion = (email) => {
 
     const config = {
-        url: 'http://localhost:3000/login'
+        url: 'https://distrindia.com/login'
     };
-    
+
     return new Promise((resolve, reject) => {
         auth.sendPasswordResetEmail(email, config)
-        .then(() => {
-            resolve();
-        })
-        .catch(() => {
-            const err = ['Email not found please try again!']
-            reject(err);
-        });
+            .then(() => {
+                resolve();
+            })
+            .catch(() => {
+                const err = ['Email not found please try again!']
+                reject(err);
+            });
     })
 }

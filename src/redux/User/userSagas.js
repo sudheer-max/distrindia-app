@@ -5,7 +5,7 @@ import { loginSuccess, logoutSuccess, registerError, resetPasswordSuccess } from
 import { handleResetPasswordFuntion } from "./userHelpers";
 
 
-export function* getSnapshotFromUserAuth(user, additionalData={}) {
+export function* getSnapshotFromUserAuth(user, additionalData = {}) {
     try {
         const userRef = yield call(handleUserProfile, { userAuth: user, additionalData });
         const snapshot = yield userRef.get();
@@ -23,11 +23,11 @@ export function* getSnapshotFromUserAuth(user, additionalData={}) {
 }
 
 
-export function* emailLogin({payload : {email, password }}) {
+export function* emailLogin({ payload: { email, password } }) {
     try {
         const { user } = yield auth.signInWithEmailAndPassword(email, password);
         yield getSnapshotFromUserAuth(user);
-        
+
 
     } catch (err) {
         console.log(err);
@@ -69,7 +69,7 @@ export function* logoutUser() {
 }
 
 export function* onLogoutStart() {
-    yield takeLatest(userTypes.LOGOUT_START, logoutUser )
+    yield takeLatest(userTypes.LOGOUT_START, logoutUser)
 }
 
 
@@ -100,7 +100,7 @@ export function* onRegisterUserStart() {
 
 
 export function* resetPassword({ payload: { email } }) {
-    
+
     try {
         yield call(handleResetPasswordFuntion, email);
         yield put(
@@ -120,12 +120,12 @@ export function* onResetPasswordStart() {
 export function* googleLogin() {
 
     try {
-        
+
         const { user } = yield auth.signInWithPopup(googleProvider);
         yield getSnapshotFromUserAuth(user);
-    
+
     } catch (err) {
-        console.log(err);
+        // console.log(err);
     }
 }
 
@@ -135,7 +135,8 @@ export function* onGoogleLoginStart() {
 }
 
 export default function* userSagas() {
-    yield all([call(onEmailLoginStart),
+    yield all([
+        call(onEmailLoginStart),
         call(onUserAuthSession),
         call(onLogoutStart),
         call(onRegisterUserStart),

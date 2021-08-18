@@ -41,130 +41,102 @@ const Login = props => {
 
 
     return (
-        <main className="no-main" style={{ backgroundColor: 'white' }}>
-
-            <div className="col-11 col-md-10
-                mx-auto" style={{ width: '450px', padding: '15px' }}>
-                <ul className="nav nav-tabs
-                    nav-justified mb-4"
-                    role="tablist">
-                    <li className="nav-item"> <Link
-                        className="nav-link
-                            text-5 line-height-3
-                            active">Login</Link>
-                    </li>
-
-                </ul>
-                <p className="text-4 font-weight-300
-                    text-muted text-center
-                    mb-4">We are glad to see you
-                    again!
-                </p>
-                <form id="loginForm"
-                    method="post">
-                    <div className="form-group">
-                        <input type="email"
-                            className="form-control"
-                            id="emailAddress"
-                            required
-                            placeholder="Mobile
-                            or Email"/>
-                    </div>
-                    <div className="form-group">
-                        <input type="password"
-                            className="form-control"
-                            id="loginPassword"
-                            required
-                            placeholder="Password" />
-                    </div>
-                    <div className="row my-4">
-                        <div className="col">
-                            <div
-                                className="form-check
-                                text-2
-                                custom-control
-                                custom-checkbox">
-                                <input
-                                    id="remember-me"
-                                    name="remember"
-                                    className="custom-control-input"
-                                    type="checkbox" />
-                                <label
-                                    className="custom-control-label"
-                                    for="remember-me">Remember
-                                    Me</label>
-                            </div>
-                        </div>
-                        <div className="col text-2
-                            text-right"><Link
-                                className="btn-link"
-                                to="/forgot-password">Forgot
-                                Password
-                                ?</Link></div>
-                    </div>
-                    <button className="btn
-                        btn-primary btn-block
-                        my-4" type="submit">Login</button>
-                </form>
-                <div className="d-flex
-                    align-items-center my-3">
-                    <hr className="flex-grow-1" />
-                    <span className="mx-2 text-2
-                        text-muted">Or Login
-                        with Social Profile</span>
-                    <hr className="flex-grow-1" />
-                </div>
-                <div className="d-flex flex-column
-                    align-items-center mb-3">
-                    <ul className="social-icons
-                        social-icons-colored
-                        social-icons-circle">
-                        <li
-                            className="social-icons-facebook"><Link
-                                to="#"
-                                data-toggle="tooltip"
-                                data-original-title="Log
-                                In with
-                                Facebook"><i
-                                    className="fab
-                                    fa-facebook-f"></i></Link></li>
-                        <li
-                            className="social-icons-twitter"><Link
-                                to="#"
-                                data-toggle="tooltip"
-                                data-original-title="Log
-                                In with
-                                Twitter"><i
-                                    className="fab
-                                    fa-twitter"></i></Link>
+        <main className="no-main">
+            <div className="ps-breadcrumb">
+                <div className="container">
+                    <ul className="ps-breadcrumb__list">
+                        <li className="active">
+                            <Link to="/">Home</Link>
                         </li>
-                        <li
-                            className="social-icons-google"><Link
-                                to="#"
-                                data-toggle="tooltip"
-                                data-original-title="Log
-                                In with Google"><i
-                                    className="fab
-                                    fa-google"></i></Link>
+                        <li>
+                            <Link to="/">My Account</Link>
                         </li>
-                        <li
-                            className="social-icons-linkedin"><Link
-                                to="#"
-                                data-toggle="tooltip"
-                                data-original-title="Log
-                                In with
-                                Linkedin"><i
-                                    className="fab
-                                    fa-linkedin-in"></i></Link></li>
                     </ul>
                 </div>
-                <p className="text-2 text-center
-                    mb-0">New to Quickai? <Link
-                        className="btn-link" to="/register"
-                    >Sign
-                        Up</Link></p>
             </div>
+            <section className="section--login">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12
+                            col-lg-6">
+                            <div className="login__box">
+                                <div className="login__header">
+                                    <h3 className="login__login">LOGIN</h3>
+                                </div>
+                                <form onSubmit={handleSubmit}>
+                                    <div className="login__content">
+                                        <div className="login__label">Login
+                                            to your
+                                            account.</div>
+                                        <div className="input-group">
+                                            <input className="form-control" type="email" placeholder="Username/
+                                            Email" name="email" value={email} onChange={e => setEmail(e.target.value)} />
+                                        </div>
+                                        <div className="input-group
+                                        group-password">
+                                            <input className="form-control" type="password" placeholder="Password" name="password" value={password} onChange={e => setPassword(e.target.value)} />
+
+                                        </div>
+                                        <p><Link to="/forgot-password">Forgot Password</Link></p>
+
+                                        <button className="btn
+                                        btn-login" type="submit">Login</button>
+                                        <div className="login__conect">
+                                            <hr />
+                                            <p>Or
+                                                login
+                                                with</p>
+                                            <hr />
+                                        </div>
+                                        <button className="btn
+                                        btn-social
+                                        btn-facebook">
+                                            <i className="fa
+                                            fa-facebook-f"></i>Login
+                                            with
+                                            Facebook</button>
+                                        <Google onClick={handleGoogleSignIn} > <i class="fa fa-google-plus"></i>Login with Google</Google>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div className="col-12
+                            col-lg-6">
+                            <h3 className="login__title">Advantages
+                                Of Becoming A
+                                Member</h3>
+                            <p className="login__description">
+                                <b>Distrindia Pvt. Ltd.
+                                </b>has you
+                                covered from
+                                click to
+                                delivery.<br />Sign
+                                up or sign in
+                                and you will be
+                                able to:
+                            </p>
+                            <div className="login__orther">
+                                <p> <i className="icon-truck"></i>Easily
+                                    Track
+                                    Orders,
+                                    Hassle free
+                                    Returns</p>
+                                <p> <i className="icon-alarm2"></i>Get
+                                    Relevant
+                                    Alerts and
+                                    Recommendation</p>
+                                <p><i className="icon-star"></i>Wishlist,
+                                    Reviews,
+                                    Ratings and
+                                    more.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
+
     )
 }
 

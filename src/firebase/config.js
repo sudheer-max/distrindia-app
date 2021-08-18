@@ -1,9 +1,9 @@
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyAZDqdX86gEZ7INHMjQ5Zih06km_Q4gu2s",
-    authDomain: "ashtavinayak-app.firebaseapp.com",
-    projectId: "ashtavinayak-app",
-    storageBucket: "ashtavinayak-app.appspot.com",
-    messagingSenderId: "1036021542858",
-    appId: "1:1036021542858:web:eff8415bab1ce2d8b32933"
+    apiKey: "AIzaSyAWDJ0xYrHzhfTJVb_Yk1pEnTsVZIm0D2M",
+    authDomain: "distrindia-app.firebaseapp.com",
+    projectId: "distrindia-app",
+    storageBucket: "distrindia-app.appspot.com",
+    messagingSenderId: "791102786856",
+    appId: "1:791102786856:web:5584d3c5361f8324e9541d"
 };

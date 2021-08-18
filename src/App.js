@@ -12,8 +12,6 @@ import MyAccount from './pages/MyAccount';
 import WithAuth from './hoc/withAuth';
 import WithAdminAuth from './hoc/WithAdminAuth';
 import Admin from './pages/Admin';
-import Contact from './pages/Contact';
-import Booking from './pages/Booking';
 
 
 
@@ -37,12 +35,8 @@ const App = props => {
                 <Route path="/login" render={() => <Login></Login>}></Route>
                 <Route path="/register" render={() => <Register></Register>}></Route>
                 <Route path="/forgot-password" component={ForgotPassword}></Route>
-                <Route path="/contact" component={Contact}></Route>
-                <Route path="/booking" component={Booking}></Route>
                 <Route path="/my-account" render={() => <WithAuth><MyAccount></MyAccount></WithAuth>}></Route>
                 <Route path="/ankush-sir" render={() => <WithAdminAuth><Admin></Admin></WithAdminAuth>}></Route>
-
-
             </Switch>
             <Footer></Footer>
         </Router>
