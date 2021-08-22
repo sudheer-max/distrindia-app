@@ -1,10 +1,11 @@
 import { takeLatest, call, all, put } from "@redux-saga/core/effects";
 import userTypes from "./user.types";
-import { auth, getCurrentUser, handleUserProfile, googleProvider } from "../../firebase/utils";
+import { auth, getCurrentUser, handleUserProfile, googleProvider, facebookProvider } from "../../firebase/utils";
 import { loginSuccess, logoutSuccess, registerError, resetPasswordSuccess } from "./user.actions";
 import { handleResetPasswordFuntion } from "./userHelpers";
+import { toast } from "react-toastify";
 
-
+toast.configure();
 export function* getSnapshotFromUserAuth(user, additionalData = {}) {
     try {
         const userRef = yield call(handleUserProfile, { userAuth: user, additionalData });
@@ -27,10 +28,12 @@ export function* emailLogin({ payload: { email, password } }) {
     try {
         const { user } = yield auth.signInWithEmailAndPassword(email, password);
         yield getSnapshotFromUserAuth(user);
+        toast.success('User Login Successfully!');
 
 
     } catch (err) {
         console.log(err);
+        toast.error(err.message);
     }
 }
 
@@ -77,7 +80,7 @@ export function* registerUser({ payload: {
     displayName, cname, address, mobile, email, password, confirmPassword
 } }) {
     if (password !== confirmPassword) {
-        const err = ['password does not match'];
+        const err = toast.error('Password not match!');
         yield put(
             registerError(err)
         )
@@ -88,9 +91,10 @@ export function* registerUser({ payload: {
         const { user } = yield auth.createUserWithEmailAndPassword(email, password);
         const additionalData = { displayName, cname, address, mobile };
         yield getSnapshotFromUserAuth(user, additionalData);
-
+        toast.success('User registration successfully done!');
     } catch (err) {
         console.log(err);
+        toast.error(err.message);
     }
 }
 
@@ -123,15 +127,33 @@ export function* googleLogin() {
 
         const { user } = yield auth.signInWithPopup(googleProvider);
         yield getSnapshotFromUserAuth(user);
+        toast.success('User Login with Google account successfully!');
 
     } catch (err) {
-        // console.log(err);
+        console.log(err);
+        toast.error(err.message);
     }
 }
 
 
+
 export function* onGoogleLoginStart() {
     yield takeLatest(userTypes.GOOGLE_LOGIN_START, googleLogin);
+}
+
+export function* facebookLogin() {
+    try {
+        const { user } = yield auth.signInWithPopup(facebookProvider);
+        yield getSnapshotFromUserAuth(user);
+        toast.success('User login with Facebook account successfully!');
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
+export function* onFacebookLoginStart() {
+    yield takeLatest(userTypes.FACEBOOK_LOGIN_START, facebookLogin)
 }
 
 export default function* userSagas() {
@@ -141,7 +163,8 @@ export default function* userSagas() {
         call(onLogoutStart),
         call(onRegisterUserStart),
         call(onResetPasswordStart),
-        call(onGoogleLoginStart)
+        call(onGoogleLoginStart),
+        call(onFacebookLoginStart)
     ]);
 };
 

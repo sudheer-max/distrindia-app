@@ -12,6 +12,7 @@ import MyAccount from './pages/MyAccount';
 import WithAuth from './hoc/withAuth';
 import WithAdminAuth from './hoc/WithAdminAuth';
 import Admin from './pages/Admin';
+import Contact from './pages/Contact';
 
 
 
@@ -37,6 +38,7 @@ const App = props => {
                 <Route path="/forgot-password" component={ForgotPassword}></Route>
                 <Route path="/my-account" render={() => <WithAuth><MyAccount></MyAccount></WithAuth>}></Route>
                 <Route path="/ankush-sir" render={() => <WithAdminAuth><Admin></Admin></WithAdminAuth>}></Route>
+                <Route path="/contact" render={() => <Contact />}></Route>
             </Switch>
             <Footer></Footer>
         </Router>

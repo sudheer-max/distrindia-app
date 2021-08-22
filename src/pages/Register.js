@@ -98,7 +98,7 @@ const Register = props => {
                                         form-group--block"><label>Full
                                                     name:
                                                     <span>*</span></label><input className="form-control" type="text"
-                                                        name="displayName" required value={displayName} onChange={e => setDisplayName(e.target.value)} />
+                                                        name="displayName" value={displayName} onChange={e => setDisplayName(e.target.value)} />
                                             </div>
                                             <div className="col-12
                                         form-group--block"><label>Email:
@@ -107,13 +107,13 @@ const Register = props => {
                                             <div className="col-12
                                         form-group--block"><label>Password:
                                                     <span>*</span></label><input className="form-control" type="password"
-                                                        required name="password" value={password} onChange={e => setPassword(e.target.value)} />
+                                                        name="password" value={password} onChange={e => setPassword(e.target.value)} />
                                             </div>
                                             <div className="col-12
                                         form-group--block"><label>Retype
                                                     password:
                                                     <span>*</span></label><input className="form-control" type="password"
-                                                        required name="confirmPassword" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} /></div>
+                                                        name="confirmPassword" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} /></div>
                                         </div>
                                     </div>
                                 </div>

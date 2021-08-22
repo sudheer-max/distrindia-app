@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import Google from '../components/Google';
-import { emailLoginStart, googleLoginStart } from '../redux/User/user.actions';
+import { emailLoginStart, facebookLoginStart, googleLoginStart } from '../redux/User/user.actions';
 
 const mapState = ({ user }) => ({
     currentUser: user.currentUser
@@ -30,6 +30,10 @@ const Login = props => {
 
     const handleGoogleSignIn = () => {
         dispatch(googleLoginStart());
+    }
+
+    const handleFacebookSignIn = () => {
+        dispatch(facebookLoginStart());
     }
 
     const handleSubmit = (e) => {
@@ -81,23 +85,24 @@ const Login = props => {
 
                                         <button className="btn
                                         btn-login" type="submit">Login</button>
-                                        <div className="login__conect">
-                                            <hr />
-                                            <p>Or
-                                                login
-                                                with</p>
-                                            <hr />
-                                        </div>
-                                        <button className="btn
-                                        btn-social
-                                        btn-facebook">
-                                            <i className="fa
-                                            fa-facebook-f"></i>Login
-                                            with
-                                            Facebook</button>
-                                        <Google onClick={handleGoogleSignIn} > <i class="fa fa-google-plus"></i>Login with Google</Google>
+
                                     </div>
                                 </form>
+                                <div className="login__conect">
+                                    <hr />
+                                    <p>Or
+                                        login
+                                        with</p>
+                                    <hr />
+                                </div>
+                                <button className="btn
+                                        btn-social
+                                        btn-facebook" onClick={handleFacebookSignIn}>
+                                    <i className="fa
+                                            fa-facebook-f"></i>Login
+                                    with
+                                    Facebook</button>
+                                <Google onClick={handleGoogleSignIn} > <i class="fa fa-google-plus"></i>Login with Google</Google>
                             </div>
                         </div>
                         <div className="col-12

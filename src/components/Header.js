@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logoutStart } from '../redux/User/user.actions';
+import AdminLink from './AdminLink';
+import DesktopHeader from './DesktopHeader';
 
 
 const mapState = ({ user }) => ({
@@ -22,14 +24,7 @@ const Header = (props) => {
             <div className="ps-top-bar">
                 <div className="container">
                     <div className="top-bar">
-                        <div
-                            className="top-bar__left">
-                            <ul className="nav-top">
-                                <li className="nav-top-item">
-                                    <Link className="nav-top-link" to="/ankush-sir">only Admin can access</Link>
-                                </li>
-                            </ul>
-                        </div>
+                        <AdminLink></AdminLink>
                         <div
                             className="top-bar__right">
                             <ul className="nav-top">
@@ -365,25 +360,7 @@ const Header = (props) => {
                     </div>
                 </div>
             </section>
-            <nav className="navigation">
-                <div className="container">
-                    <ul className="menu">
-
-                        <li className="menu-item-has-children
-                        has-mega-menu active">
-                            <Link className="nav-link active" to="/">Home</Link>
-                        </li>
-
-
-                        <li className="menu-item-has-children has-mega-menu">
-                            <Link className="nav-link"
-                                to="flash-sale.html">Flash Sale</Link>
-                        </li>
-
-                    </ul>
-
-                </div>
-            </nav>
+            <DesktopHeader />
 
         </header>
 
