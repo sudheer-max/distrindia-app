@@ -89,13 +89,12 @@ const MobileNav = () => {
                     {!currentUser && (
                         <div className="navigation-title">
                             <button className="close-navbar-slide"><i className="icon-arrow-left"></i></button>
-                            <div>
+                            <div><span className="account">Login</span>
                                 <Link className="dropdown-user" to="/" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false"><i className="icon-chevron-down"></i></Link>
                                 <div className="dropdown-menu" aria-labelledby="dropdownAccount">
                                     <Link className="dropdown-item" to="/login"><b>Login</b></Link>
-                                    <Link className="dropdown-item" to="/register">Register</Link>
-
+                                    <Link className="dropdown-item" to="/register"><b>Sign Up</b></Link>
                                 </div>
                             </div>
                         </div>
